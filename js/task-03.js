@@ -22,23 +22,30 @@ const images = [
 // Все элементы галереи должны добавляться в DOM за одну операцию вставки.
 // Добавь минимальное оформление галереи флексбоксами или гридами через css-классы.
 
-const galleryEl = document.querySelector('#gallery');
-const elements = images.map(image => {
-    const galleryElementEl = document.createElement('li')
-    galleryElementEl.classList.add('gallery-item');
-    const ImagesItem = document.createElement('img');
-    ImagesItem.classList.add('photo')
-    ImagesItem.src = image.url;
-    ImagesItem.alt = image.alt;
+// const galleryEl = document.querySelector('#gallery');
+// const elements = images.map(image => {
+//     const galleryElementEl = document.createElement('li')
+//     galleryElementEl.classList.add('gallery-item');
+//     const ImagesItem = document.createElement('img');
+//     ImagesItem.classList.add('photo')
+//     ImagesItem.src = image.url;
+//     ImagesItem.alt = image.alt;
 
-    galleryElementEl.appendChild(ImagesItem);    
+//     galleryElementEl.appendChild(ImagesItem);    
   
    
-    return galleryElementEl;
-});
-
-
-   
-console.log(elements);
+//     return galleryElementEl;
+// });   
     
-galleryEl.append(...elements);
+// galleryEl.append(...elements);
+
+// -------------------------------------------------
+
+const galleryEl = document.querySelector('#gallery');
+const elements = images.map(image => {
+  const galleryElementEl =
+    ` <li class="gallery-item" > <img class = "photo" src = " ${image.url}"
+   alt = " ${image.alt}" >
+   </li>`;
+  return galleryEl.insertAdjacentHTML('beforeend', galleryElementEl);
+});
