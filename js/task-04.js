@@ -19,8 +19,8 @@ const counter = {
 
 
 const counterEl = document.getElementById('counter');
-const incrementBtn = counterEl.querySelector("[data-action='increment']");
-const decrementBtn = counterEl.querySelector("[data-action='decrement']");
+const incrementBtn = counterEl.querySelector('[data-action="increment"]');
+const decrementBtn = counterEl.querySelector('[data-action="decrement"]');
 const valueEl = document.getElementById('value');
 
 

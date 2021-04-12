@@ -8,3 +8,49 @@
 // Размеры самого первого div - 30px на 30px
 // Каждый следующий div после первого, должен быть шире и выше предыдущего на 10px
 // Создай функцию destroyBoxes(), которая очищает div#boxes.
+const inputEl = document.querySelector('[type="number"]');
+const renderBtn = document.querySelector('[data-action="render"]');
+const destroyBtn = document.querySelector('[data-action="destroy"]');
+const boxesEl = document.querySelector('#boxes');
+
+boxesEl.classList.add('boxes-div');
+
+
+const randomRgb = () => {
+    const rgbNum = () => Math.floor(Math.random() * 256);
+    const r = rgbNum();
+    const g = rgbNum();
+    const b = rgbNum();
+    return `rgb(${r},${g},${b})`;
+};
+
+
+const newBoxes = [];
+
+function createBoxes(amount) {
+    let size = 30;
+    for (let i =1; i <= amount; i += 1) {
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('new-box');
+        newDiv.style.backgroundColor = randomRgb();
+        newDiv.style.width = size + 'px';
+        newDiv.style.height = size + 'px';
+        size += 10;
+        newBoxes.push(newDiv);
+        
+    }
+    return boxesEl.append(...newBoxes);
+}
+
+renderBtn.addEventListener('click', function () {
+    let quantity = inputEl.value;
+    createBoxes(quantity);
+    boxesEl.append(...newBoxes);
+});
+
+
+// function onRemoveNewBoxes() {
+    
+// }
+
+// destroyBtn.addEventListener('click', onRemoveNewBoxes());

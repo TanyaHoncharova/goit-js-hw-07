@@ -21,13 +21,14 @@ inputEl.addEventListener('input', onCheckInputLength);
 
 inputEl.addEventListener('blur', function (onCheckInputLength)  {
     if (a.length >= 6) {
-        inputEl.classList.add('.validation-input.valid');
-        console.log('valid');
-        // console.log(inputEl.classList);
+        inputEl.classList.replace('validation-input', 'validation-input.valid');
+        // console.log('valid');
+        console.log(inputEl.classList);
     
 } else {
-    inputEl.classList.add('.validation-input.invalid');
-    console.log('invalid');
-    // console.log(inputEl.classList);
+        inputEl.classList.replace('validation-input', 'validation-input.invalid');
+    // console.log('invalid');
+        console.log(inputEl.classList);
+        // inputEl.style.borderColor = 'tomato';
 }
 });
