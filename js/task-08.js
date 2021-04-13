@@ -8,10 +8,14 @@
 // Размеры самого первого div - 30px на 30px
 // Каждый следующий div после первого, должен быть шире и выше предыдущего на 10px
 // Создай функцию destroyBoxes(), которая очищает div#boxes.
+
+
+
 const inputEl = document.querySelector('[type="number"]');
 const renderBtn = document.querySelector('[data-action="render"]');
 const destroyBtn = document.querySelector('[data-action="destroy"]');
 const boxesEl = document.querySelector('#boxes');
+
 
 boxesEl.classList.add('boxes-div');
 
@@ -43,21 +47,34 @@ function createBoxes(amount) {
     return boxesEl.append(...newBoxes);
 }
 
+
+function onRemoveNewBoxes(event) {   
+    
+    let element = document.querySelectorAll('.new-box');
+    element.forEach(el => {
+        el.parentNode.removeChild(el);
+    });
+}
+
+// function onRemoveNewBoxes(event) { 
+//     const boxQ = boxesEl.querySelectorAll('.new-box');
+// boxQ.forEach(el =>
+//     el.remove()
+// );}
+
+// function onRemoveNewBoxes(event) {
+//    while (boxesEl.firstElement) {
+//    boxesEl.removeChild(element.firstChild);
+// }
+// }
+
+
 renderBtn.addEventListener('click', function () {
-    let quantity = inputEl.value;
+    const quantity = inputEl.value;
     createBoxes(quantity);
     boxesEl.append(...newBoxes);
     inputEl.value = 0;
+    
 });
-
-
-function onRemoveNewBoxes(event) {
-    const boxQ = boxesEl.querySelectorAll('new-box');
-    boxQ.forEach(el =>
-        boxesEl.removeChild(el)
-    );
-
-}
-// console.log(boxQ);
 
 destroyBtn.addEventListener('click', onRemoveNewBoxes());
