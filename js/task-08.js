@@ -56,25 +56,13 @@ function onRemoveNewBoxes(event) {
     });
 }
 
-// function onRemoveNewBoxes(event) { 
-//     const boxQ = boxesEl.querySelectorAll('.new-box');
-// boxQ.forEach(el =>
-//     el.remove()
-// );}
-
-// function onRemoveNewBoxes(event) {
-//    while (boxesEl.firstElement) {
-//    boxesEl.removeChild(element.firstChild);
-// }
-// }
-
 
 renderBtn.addEventListener('click', function () {
     const quantity = inputEl.value;
     createBoxes(quantity);
     boxesEl.append(...newBoxes);
-    inputEl.value = 0;
+    // inputEl.value = 0;
     
 });
 
-destroyBtn.addEventListener('click', onRemoveNewBoxes());
+destroyBtn.addEventListener('click', onRemoveNewBoxes);
