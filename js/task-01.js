@@ -1,34 +1,20 @@
 
-const categoriesEL = document.querySelector('#categories')
-console.log(categoriesEL);
-// const categoriesItemEL = document.querySelectorAll('.animal')
-
-const itemListEL = categoriesEL.qwueruSelector('.item')
-console.log(categoriesItemEL);
-// const 
-const listName = document.querySelectorAll('h2');
-// console.log(listName);
+const categoriesEL = document.querySelector('#categories');
+const allCaterogy = document.querySelectorAll('li.item');
 
 
-const allCategories = (arr) => {
-    let a = categoriesEL.length;
-  return `'В списке ${a} категории.'`
+function allCategoriesCount() {
+  const q = allCaterogy.length;
+  console.log(`В списке ${q} категории.`);
+  return `В списке ${q} категории.`;
 }
-// console.log(allCategories(categoriesItem));
 
+allCategoriesCount();
 
-
-// const content = (a,b) => {
-//     let names = listName;
-//     let elements
-//     for (el of names) {
-        
-//     }
-//     console.log(`- Категория: ${el}
-// - Количество элементов: ${elements}`)
-// }
-
-// console.log(content(categoriesItem));
-
-
-   
+function allCategoryContent(list) {
+  allCaterogy.forEach(item => {
+    console.log(`Категория: ${item.firstElementChild.textContent} `);
+    console.log(`Количество элементов: ${item.querySelectorAll('li').length}`);
+  })
+}
+allCategoryContent(allCaterogy);

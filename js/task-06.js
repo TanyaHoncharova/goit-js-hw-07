@@ -6,29 +6,17 @@
 
 
 const inputEl = document.getElementById('validation-input');
+const dataLengthEl = document.querySelector('[data-length="6"]')
 
-let a = '';
-function onCheckInputLength (event) {
-    a = (event.currentTarget.value);
-    console.log(a.length)
-    return a;
+
+inputEl.addEventListener('blur', onInputChange);
+
+function onInputChange (event) {
+    if (event.currentTarget.value.length === +dataLengthEl.dataset.length) {
+        inputEl.classList.remove('invalid');
+        inputEl.classList.add('valid');
+        
+    } else {
+        inputEl.classList.add('invalid');
+  }
 };
-
-
-
-
-inputEl.addEventListener('input', onCheckInputLength);
-
-inputEl.addEventListener('blur', function (onCheckInputLength)  {
-    if (a.length >= 6) {
-        inputEl.classList.replace('validation-input', 'validation-input.valid');
-        // console.log('valid');
-        console.log(inputEl.classList);
-    
-} else {
-        inputEl.classList.replace('validation-input', 'validation-input.invalid');
-    // console.log('invalid');
-        console.log(inputEl.classList);
-        // inputEl.style.borderColor = 'tomato';
-}
-});

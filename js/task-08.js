@@ -39,6 +39,7 @@ function createBoxes(amount) {
         newBoxes.push(newDiv);
         
     }
+    
     return boxesEl.append(...newBoxes);
 }
 
@@ -46,11 +47,17 @@ renderBtn.addEventListener('click', function () {
     let quantity = inputEl.value;
     createBoxes(quantity);
     boxesEl.append(...newBoxes);
+    inputEl.value = 0;
 });
 
 
-// function onRemoveNewBoxes() {
-    
-// }
+function onRemoveNewBoxes(event) {
+    const boxQ = boxesEl.querySelectorAll('new-box');
+    boxQ.forEach(el =>
+        boxesEl.removeChild(el)
+    );
 
-// destroyBtn.addEventListener('click', onRemoveNewBoxes());
+}
+// console.log(boxQ);
+
+destroyBtn.addEventListener('click', onRemoveNewBoxes());
