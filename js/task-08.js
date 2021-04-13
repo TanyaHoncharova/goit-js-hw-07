@@ -29,7 +29,7 @@ const randomRgb = () => {
 };
 
 
-const newBoxes = [];
+let newBoxes = [];
 
 function createBoxes(amount) {
     let size = 30;
@@ -41,19 +41,17 @@ function createBoxes(amount) {
         newDiv.style.height = size + 'px';
         size += 10;
         newBoxes.push(newDiv);
-        
     }
-    
     return boxesEl.append(...newBoxes);
 }
 
 
-function onRemoveNewBoxes(event) {   
-    
+function onRemoveNewBoxes(event) {
     let element = document.querySelectorAll('.new-box');
     element.forEach(el => {
         el.parentNode.removeChild(el);
     });
+    return newBoxes = [];
 }
 
 
@@ -61,7 +59,7 @@ renderBtn.addEventListener('click', function () {
     const quantity = inputEl.value;
     createBoxes(quantity);
     boxesEl.append(...newBoxes);
-    // inputEl.value = 0;
+    inputEl.value = 0;
     
 });
 

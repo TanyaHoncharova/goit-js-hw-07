@@ -10,7 +10,7 @@ fontSizeControlEl.setAttribute('min', '40px');
 fontSizeControlEl.setAttribute('max', '300px');
 fontSizeControlEl.setAttribute('step', '5px');
 
-fontSizeControlEl.addEventListener('click', function () {
+fontSizeControlEl.addEventListener('input', function () {
     let size = fontSizeControlEl.min;
     size = fontSizeControlEl.value;
     textEl.style.fontSize = size + 'px';
