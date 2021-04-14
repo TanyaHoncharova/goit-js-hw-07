@@ -45,6 +45,14 @@ function createBoxes(amount) {
     return boxesEl.append(...newBoxes);
 }
 
+renderBtn.addEventListener('click', function () {
+    const quantity = inputEl.value;
+    createBoxes(quantity);
+    boxesEl.append(...newBoxes);
+    inputEl.value = 0;
+    
+});
+
 
 function onRemoveNewBoxes(event) {
     let element = document.querySelectorAll('.new-box');
@@ -53,14 +61,5 @@ function onRemoveNewBoxes(event) {
     });
     return newBoxes = [];
 }
-
-
-renderBtn.addEventListener('click', function () {
-    const quantity = inputEl.value;
-    createBoxes(quantity);
-    boxesEl.append(...newBoxes);
-    inputEl.value = 0;
-    
-});
 
 destroyBtn.addEventListener('click', onRemoveNewBoxes);

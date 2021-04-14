@@ -8,10 +8,10 @@ const outputEl = document.getElementById('name-output');
 inputEl.addEventListener('input', onInput);
 
 function onInput(event) {
-    if (event.currentTarget.value != 0) {
+    if (event.currentTarget.value !== "") {
         console.log(event.currentTarget.value);
         outputEl.textContent = event.currentTarget.value;
     } else {
-        outputEl.textContent = `Незнакомец`;
+        outputEl.textContent = `незнакомец`;
     }
 }

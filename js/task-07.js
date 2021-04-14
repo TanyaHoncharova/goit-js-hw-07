@@ -6,12 +6,14 @@
 const fontSizeControlEl = document.querySelector('#font-size-control');
 const textEl = document.querySelector('#text');
 
-fontSizeControlEl.setAttribute('min', '40px');
-fontSizeControlEl.setAttribute('max', '300px');
-fontSizeControlEl.setAttribute('step', '5px');
+
 
 fontSizeControlEl.addEventListener('input', function () {
-    let size = fontSizeControlEl.min;
-    size = fontSizeControlEl.value;
+    let size = fontSizeControlEl.value;    
     textEl.style.fontSize = size + 'px';
 });
+
+
+
+// fontSizeControlEl.dispatchEvent(new Event('input'))
+// привязывает размер шрифта к значению ползунка при загрузке страницы (нужно установить значение ползунка по умолчанию, что бы не прыгал размер текста при загрузке)

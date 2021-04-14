@@ -12,11 +12,12 @@ const dataLengthEl = document.querySelector('[data-length="6"]')
 inputEl.addEventListener('blur', onInputChange);
 
 function onInputChange (event) {
-    if (event.currentTarget.value.length === +dataLengthEl.dataset.length) {
+    if (event.currentTarget.value.length === +inputEl.dataset.length) {
         inputEl.classList.remove('invalid');
         inputEl.classList.add('valid');
         
     } else {
+        inputEl.classList.remove('valid');
         inputEl.classList.add('invalid');
   }
 };
